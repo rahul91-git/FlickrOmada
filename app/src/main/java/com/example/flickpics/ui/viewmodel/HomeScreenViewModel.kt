@@ -8,6 +8,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel for managing the state of the Flickr photo search screen.
+ *
+ * @param repository The [FlickrService] instance for fetching photos.
+ */
 class PhotoViewModel(private val repository: FlickrService) : ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> get() = _uiState

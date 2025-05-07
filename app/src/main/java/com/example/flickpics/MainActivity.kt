@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.ui.Modifier
-import com.example.flickpics.ui.FlickrHomeScreen
+import com.example.flickpics.ui.HomeScreen
 import com.example.flickrapp.App
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Box(Modifier.safeDrawingPadding()) {
-                FlickrHomeScreen(viewModel)
+                HomeScreen(viewModel)
             }
         }
     }

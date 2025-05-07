@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.flickpics.R
 import com.example.flickpics.models.PhotoUiModel
@@ -21,7 +20,7 @@ import com.example.flickpics.ui.viewmodel.PhotoViewModel
 private const val GRID_CELLS = 3
 
 @Composable
-fun FlickrHomeScreen(viewModel: PhotoViewModel) {
+fun HomeScreen(viewModel: PhotoViewModel) {
     val state by viewModel.uiState.collectAsState()
     val gridState = rememberLazyGridState()
 

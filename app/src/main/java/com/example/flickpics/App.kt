@@ -17,14 +17,17 @@ class App : Application() {
     @OptIn(ExperimentalSerializationApi::class)
     override fun onCreate() {
         super.onCreate()
+
         val contentType = "application/json".toMediaType()
         val retrofit = Retrofit.Builder()
             .baseUrl("https://www.flickr.com/")
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
         val api = retrofit.create(FlickrApi::class.java)
+
         val apiKey = BuildConfig.API_KEY
         val repository = FlickrService(api, apiKey)
+
         photoViewModel = PhotoViewModel(repository)
     }
 }
