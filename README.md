@@ -33,3 +33,9 @@ FlickPics is an app which displays and let's you search recent photos using the 
 - **Pull to refresh**  
   Add "pull to refresh" functionality to enhance the user experience when browsing photos.
 
+## Screen recording
+
+https://github.com/user-attachments/assets/81a9e6e0-d109-427c-ba81-e0fef0780850
+
+
+
