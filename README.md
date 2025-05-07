@@ -22,7 +22,7 @@ FlickPics is an app which displays and let's you search recent photos using the 
     ```bash
     API_KEY=<your_api_key>
 
-## Potential Improvements
+## Future Improvements
 
 - **Add dependency injection**  
   Implement a dependency injection framework like [Hilt](https://developer.android.com/training/dependency-injection/hilt-android).
