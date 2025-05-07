@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.flickpics.R
 import com.example.flickpics.models.PhotoUiModel
@@ -50,7 +51,10 @@ fun FlickrHomeScreen(viewModel: PhotoViewModel) {
         if (state.isLoading && state.photos.isEmpty()) {
             CircularProgressIndicator(Modifier.align(Alignment.CenterHorizontally))
         } else {
-            PhotoGrid(gridState = gridState, photos = state.photos, onClick = { selectedPhoto = it })
+            PhotoGrid(
+                gridState = gridState,
+                photos = state.photos,
+                onClick = { selectedPhoto = it })
         }
 
         state.error?.let { error ->
@@ -86,6 +90,8 @@ private fun PhotoGrid(
         columns = GridCells.Fixed(count = GRID_CELLS),
         state = gridState,
         contentPadding = PaddingValues(dimensionResource(R.dimen.grid_content_padding_all)),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.image_padding_all)), // Vertical spacing between items
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.image_padding_all)),
         modifier = Modifier.fillMaxSize()
     ) {
         items(photos) { photo ->
@@ -94,7 +100,6 @@ private fun PhotoGrid(
                 modifier = Modifier
                     .aspectRatio(1f) // This maintains a square aspect ratio
                     .border(dimensionResource(R.dimen.border_width), Color.Gray)
-                    .padding(dimensionResource(R.dimen.image_padding_all))
                     .clickable { onClick(photo) }
             )
         }
