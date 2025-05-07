@@ -1,6 +1,7 @@
 package com.example.flickrapp
 
 import android.app.Application
+import com.example.flickpics.BuildConfig
 import com.example.flickpics.api.FlickrApi
 import com.example.flickpics.api.FlickrService
 import com.example.flickpics.ui.viewmodel.PhotoViewModel
@@ -22,7 +23,8 @@ class App : Application() {
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
         val api = retrofit.create(FlickrApi::class.java)
-        val repository = FlickrService(api)
+        val apiKey = BuildConfig.API_KEY
+        val repository = FlickrService(api, apiKey)
         photoViewModel = PhotoViewModel(repository)
     }
 }
